@@ -126,6 +126,19 @@ router.post('/', upload.single('profilePhoto'), validatePlayerData, async (req, 
           if (emailResult && !emailResult.error) {
             player.idCardSent = true;
             await player.save();
+            // Delete profile photo after successful email
+            if (player.profilePhoto) {
+              const fs = await import('fs');
+              const path = await import('path');
+              const photoPath = path.join(process.cwd(), 'backend', player.profilePhoto);
+              fs.unlink(photoPath, (err) => {
+                if (err) {
+                  console.error('Error deleting profile photo:', err);
+                } else {
+                  console.log('Profile photo deleted:', photoPath);
+                }
+              });
+            }
           } else {
             console.log('Email not sent:', emailResult?.error || 'Email service not configured');
           }
@@ -353,6 +366,19 @@ router.post('/:id/regenerate-idcard', async (req, res, next) => {
       if (emailResult && !emailResult.error) {
         player.idCardSent = true;
         await player.save();
+        // Delete profile photo after successful email
+        if (player.profilePhoto) {
+          const fs = await import('fs');
+          const path = await import('path');
+          const photoPath = path.join(process.cwd(), 'backend', player.profilePhoto);
+          fs.unlink(photoPath, (err) => {
+            if (err) {
+              console.error('Error deleting profile photo:', err);
+            } else {
+              console.log('Profile photo deleted:', photoPath);
+            }
+          });
+        }
       } else {
         console.log('Email not sent:', emailResult?.error || 'Email service not configured');
       }
