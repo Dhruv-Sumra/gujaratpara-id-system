@@ -25,8 +25,7 @@ import {
 import ParaSportsIcons from '../components/ParaSportsIcons';
 import { ScreenReaderContext } from '../components/ScreenReader';
 import logo1 from '../assets/logo1.png';
-
-  const videoUrl = '/src/assets/backgroundVideo.mp4'
+import backgroundVideo from '../assets/backgroundVideo.mp4';  
 
 const Home = () => {
   const { speak, isAudioEnabled } = useContext(ScreenReaderContext);
@@ -66,7 +65,7 @@ const Home = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={videoUrl} type="video/mp4" />
+          <source src={backgroundVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
