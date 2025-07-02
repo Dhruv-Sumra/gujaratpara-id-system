@@ -16,7 +16,7 @@ import rateLimit from 'express-rate-limit';
 
 // Import routes
 import playerRoutes from './routes/playerRoutes.js';
-import idcardRoutes from './routes/idCardRoutes.js';  
+import idcardRoutes from './routes/idcardRoutes.js';    
 
 // Import middleware
 import { errorHandler } from './middleware/errorHandler.js';
