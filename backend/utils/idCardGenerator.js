@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import QRCode from 'qrcode';
-import { getRandomPlayer } from '../generateFakeData.js';
+// import { getRandomPlayer } from '../generateFakeData.js';   
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -408,7 +408,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
 async function main() {
   try {
-    const player = getRandomPlayer();
+    //  const player = getRandomPlayer();
+    const player = demoPlayer;
     player.playerId = player.playerId || `PS${Math.floor(Math.random() * 1000000)}`;
     console.log(`Generating ID card for: ${player.firstName} ${player.lastName} (${player.playerId})`);
     const cardPath = await generateIdCard(player);
