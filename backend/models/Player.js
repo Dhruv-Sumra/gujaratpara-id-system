@@ -274,8 +274,6 @@ playerSchema.set('toJSON', { virtuals: true });
 playerSchema.set('toObject', { virtuals: true });
 
 // Create indexes for better query performance
-playerSchema.index({ playerId: 1 }, { unique: true });
-playerSchema.index({ email: 1 }, { unique: true });
 playerSchema.index({ registrationDate: -1 });
 playerSchema.index({ primarySport: 1 });
 playerSchema.index({ disabilityType: 1 });
