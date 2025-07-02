@@ -7,8 +7,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node --max-old-space-size=4096 server.js",
-    "dev": "nodemon --max-old-space-size=4096 server.js",
+    "start": "node server.js",
+    "dev": "node server.js",
     "build": "echo 'No build required for Node.js backend'",
     "test": "echo \"Error: no tests yet\" && exit 0",
     "start:prod": "NODE_ENV=production node --max-old-space-size=4096 server.js",
@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "canvas": "^2.11.2",
     "compression": "^1.8.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -36,9 +35,5 @@
   "devDependencies": {
     "nodemon": "^3.0.2",
     "eslint": "^8.56.0"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
   }
 }
