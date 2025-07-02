@@ -380,43 +380,8 @@ const formatDate = (dateString) => {
   return date.toLocaleDateString('en-GB'); // DD/MM/YYYY format
 };
 
-// Demo/test data matching your ID card images
-const demoPlayer = {
-  playerId: 'PS20250001',
-  firstName: 'BHAVANABEN',
-  lastName: 'CHAUDHARY',
-  fatherName: 'AJABAJI',
-  dateOfBirth: '01/06/1998',
-  gender: 'FEMALE',
-  address: { city: 'SURAT', state: 'GUJARAT' },
-  mobileNumber: '7359450400',
-  passportNumber: 'S0738958',
-  category: 'F/T-46',
-  sdmsNo: '',
-  primarySport: 'JAVELIN, LONG JUMP/T-46',
-  coachName: 'VISHESH SHARMA',
-  supportStaff: 'MUNEEB SRIVASTAVA',
-  emergencyContact: { phone: '9982200192' }
-};
-
-// Run demo if executed directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  generateIdCard(demoPlayer).then((pdfPath) => {
-    console.log('Demo ID card generated at:', pdfPath);
-  }).catch(console.error);
-}
-
-async function main() {
-  try {
-    //  const player = getRandomPlayer();
-    const player = demoPlayer;
-    player.playerId = player.playerId || `PS${Math.floor(Math.random() * 1000000)}`;
-    console.log(`Generating ID card for: ${player.firstName} ${player.lastName} (${player.playerId})`);
-    const cardPath = await generateIdCard(player);
-    console.log('ID card generated at:', cardPath);
-  } catch (err) {
-    console.error('Error generating ID card:', err);
-  }
-}
-
-main();  
+// Remove demo/test code below
+// const demoPlayer = { ... };
+// if (import.meta.url === `file://${process.argv[1]}`) { ... }
+// async function main() { ... }
+// main(); 
