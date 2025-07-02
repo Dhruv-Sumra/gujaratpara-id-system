@@ -1,0 +1,39 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "frontend/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
+      },
+      {
+        "src": "backend/server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "backend/server.js",
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+        }
+      },
+      {
+        "src": "/(.*)",
+        "dest": "frontend/dist/index.html"
+      }
+    ],
+    "cache": [
+      "~/.npm",
+      "frontend/node_modules/.vite",
+      "backend/node_modules"
+    ],
+    "build": {
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
